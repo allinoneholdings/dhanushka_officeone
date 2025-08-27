@@ -1,0 +1,98 @@
+1
+create database AllInOneSample;
+use AllInOneSample;
+
+2
+create table SuperAdmin(
+	superAdminId int primary key auto_increment,
+    userName varchar(50),
+    password varchar(20),
+    status ENUM('Active', 'InActive') DEFAULT 'Active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+3
+create table Branch(
+ officeId int primary key auto_increment,
+ officeName varchar(50),
+ contactNumber varchar(15),
+ superAdminIdFk int,
+ emailAddress varchar(40),
+ address varchar(20),
+ state varchar(20),
+ city varchar(20),
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ foreign key(superAdminIdFk) references SuperAdmin(superAdminId)
+); 
+
+4
+create table staff(
+	staffId int primary key auto_increment,
+    userName varchar(50),
+    password varchar(20),
+    branchIdFk int,
+    status ENUM('Active', 'InActive') DEFAULT 'Active',
+    type ENUM('Admin', 'Receptionist') DEFAULT 'Admin',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    foreign key(branchIdFk) references branch(branchId)
+);
+
+5
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Dhanushka010Mahesh/sds.git
+git push -u origin main
+
+6
+create table customer(
+	customerId int primary key auto_increment,
+    customerName varchar(50),
+    emailAddress varchar(50),
+    password varchar(20),
+    phoneNumber varchar(12),
+    status ENUM('Active', 'InActive') DEFAULT 'Active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+7
+Create table Package(
+	packageId int primary key auto_increment,
+    packageName varchar(50),
+    price double ,
+    style ENUM('Hourly','Per Day', 'Per Month') DEFAULT 'Hourly',
+    status ENUM('Active', 'InActive') DEFAULT 'Active',
+    Facilitie varchar(250)
+);
+
+8
+Create table Booking(
+	BookingId int primary key auto_increment,
+    packageIdFk int,
+    customerIdFk int,
+    startDate date, 
+    endDate Date,
+    Hours int default 8,
+    TotalPrice double,
+    advancePrice double,
+    balance double,
+    status ENUM('Pending', 'Approvel','Completed') DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    message varchar(150),
+    foreign key(packageIdFk) references Package(packageId),
+    foreign key(customerIdFk) references customer(customerId)
+);
+
+9
+create table BranchPackages(
+	BranchId int,
+    PackageId int,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    primary key(BranchId,PackageId),
+    constraint BranchIdFk foreign key(BranchId) references branch(branchId),
+    constraint PackageIdFk foreign key(PackageId) references Package(PackageId)
+);
