@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import Card from "../components/CustomCard/PackageCard";
 import imgCard from "../assets/CardImg.webp";
 
-const PackagePage = () => {
+const SingleBranch = () => {
   const products = [
     {
       id: 1,
@@ -12,21 +12,10 @@ const PackagePage = () => {
       description: "AC,Unlimited Wifi,Printed Access,Lunch Room,Wash Room,Any Work,consultation Access for Networking Events,Lobby",
       img: `${imgCard}`,
     },
-    {
-      id: 2,
-      name: "Package 02",
-      description: "AC,Unlimited Wifi,Printed Access,Lunch Room,Wash Room,Any Work,consultation Access for Networking Events,Lobby",
-      img: `${imgCard}`,
-    },
+    
     {
       id: 3,
       name: "Package 03",
-      description: "AC,Unlimited Wifi,Printed Access,Lunch Room,Wash Room,Any Work,consultation Access for Networking Events,Lobby",
-      img: `${imgCard}`,
-    },
-    {
-      id: 4,
-      name: "Package 04",
       description: "AC,Unlimited Wifi,Printed Access,Lunch Room,Wash Room,Any Work,consultation Access for Networking Events,Lobby",
       img: `${imgCard}`,
     },
@@ -110,4 +99,4 @@ const PackagePage = () => {
   );
 };
 
-export default PackagePage;
+export default SingleBranch;

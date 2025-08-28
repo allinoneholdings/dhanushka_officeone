@@ -5,6 +5,8 @@ import LoginPage from './pages/Login/LoginPage'
 import BranchPage from './pages/BranchPage'
 import PackagePage from './pages/PackagePage'
 import Register from './pages/Login/Register'
+import SingleBranch from './pages/SingleBranch'
+import SinglePackage from './pages/SinglePackage'
 
 const App = () => {
   return (
@@ -13,8 +15,14 @@ const App = () => {
         <Route path='/' element={<HomePage/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<LoginPage/>} />
-        <Route path='/branch' element={<BranchPage/>} />
+
         <Route path='/packages' element={<PackagePage/>} />
+        <Route path='/packages/:id' element={<SinglePackage/>} />
+        
+        <Route path='/branch' element={<BranchPage/>} />
+        <Route path='/branch/:id' element={<SingleBranch/>} />
+        
+
       </Routes>
     </div>
   )
