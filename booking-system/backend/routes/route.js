@@ -1,0 +1,33 @@
+import express from 'express';
+import {
+  createSuperAdmin,
+  createStaff,
+  createCustomer,
+  loginSuperAdmin,
+  loginStaff,
+  loginCustomer
+} from '../controller/UserController.js';
+import { createBranch, SearchBranch } from '../controller/BranchController.js';
+import { createBranchPackage, createPackage, SearchPackage } from '../controller/PackageController.js';
+import { createBooking } from '../controller/BookingController.js';
+
+const route = express.Router();
+
+route.post('/user/superadmin', createSuperAdmin);
+route.post('/user/staff', createStaff);
+route.post('/user/customer', createCustomer);
+
+// Login routes
+route.post('/login/superadmin', loginSuperAdmin);
+route.post('/login/staff', loginStaff);
+route.post('/login/customer', loginCustomer);
+
+route.post('/branch', createBranch);
+route.post('/package', createPackage);
+route.post('/booking', createBooking);
+route.post('/branchPackage', createBranchPackage);
+
+route.post('/branch/search', SearchBranch);
+route.post('/package/search', SearchPackage);
+
+export default route;

@@ -1,0 +1,65 @@
+# -------------------------
+# Node / Express Backend
+# -------------------------
+backend/node_modules/
+backend/package-lock.json
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/.env
+backend/.DS_Store
+backend/dist/
+backend/build/
+backend/.vscode/
+backend/.idea/
+backend/.eslintcache
+
+# -------------------------
+# React Frontend
+# -------------------------
+frontend/node_modules/
+frontend/package-lock.json
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env
+frontend/.DS_Store
+frontend/build/
+frontend/dist/
+frontend/.vscode/
+frontend/.idea/
+frontend/.eslintcache
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+logs
+*.pid
+*.seed
+*.pid.lock
+
+# -------------------------
+# OS-specific files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# VS Code / IDE
+# -------------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# -------------------------
+# Misc
+# -------------------------
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
