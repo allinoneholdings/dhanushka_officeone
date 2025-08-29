@@ -101,3 +101,19 @@ export const SearchPackage = async (req, res) => {
         res.status(500).json({ errorMessage: error.message });
     }
 };
+
+// Get all packages
+export const getAllPackages = async (req, res) => {
+  try {
+    const q = "SELECT packageId,packageName,price,style,status FROM package";
+    db.query(q, [], (err, result) => {
+      if (err) {
+        console.log("Database Error:", err);
+        return res.status(500).json({ errorMessage: "Database error" });
+      }
+      return res.status(200).json({ packages: result });
+    });
+  } catch (error) {
+    res.status(500).json({ errorMessage: error.message });
+  }
+};

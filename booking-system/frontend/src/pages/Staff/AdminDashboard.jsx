@@ -5,6 +5,7 @@ import DashboardBodyContent from "../../components/AdminDashBoard/DashboardBodyC
 import ProductBodyContent from "../../components/AdminDashBoard/ProductBodyContent";
 import BranchBodyContent from "../../components/AdminDashBoard/BranchBodyContent";
 import BookingListBodyContent from "../../components/AdminDashBoard/BookingListBodyContent";
+import UsersBodyContent from "../../components/AdminDashBoard/UsersBodyContent";
 
 
 const AdminDashboard = () => {
@@ -33,6 +34,8 @@ const AdminDashboard = () => {
     switch (activeMenu) {
       case 'dashboard':
         return <DashboardBodyContent />;
+      case 'users':
+        return <UsersBodyContent />;
       case 'packages':
         return <ProductBodyContent />;
       case 'branches':
@@ -69,6 +72,12 @@ const AdminDashboard = () => {
               onClick={() => setActiveMenu('packages')}
             >
               Packages
+            </button>
+            <button
+              className={`text-left px-4 py-2 rounded-lg font-medium transition ${activeMenu === 'users' ? 'bg-blue-100 text-blue-700' : 'text-blue-700 hover:bg-blue-100'}`}
+              onClick={() => setActiveMenu('users')}
+            >
+              Users
             </button>
             <button
               className={`text-left px-4 py-2 rounded-lg font-medium transition ${activeMenu === 'branches' ? 'bg-blue-100 text-blue-700' : 'text-blue-700 hover:bg-blue-100'}`}

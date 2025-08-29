@@ -251,3 +251,44 @@ export const loginCustomer = async (req, res) => {
   }
 };
 
+
+// Get all users (customers, staff, super admins)
+export const getAllUsers = async (req, res) => {
+  try {
+    const q = `
+      SELECT 
+          customerId AS userId,
+          'Customer' AS userType,
+          customerName AS name,
+          status,
+          created_at
+      FROM customer
+      UNION ALL
+      SELECT 
+          staffId AS userId,
+          'Staff' AS userType,
+          userName AS name,
+          status,
+          created_at
+      FROM staff
+      UNION ALL
+      SELECT 
+          superAdminId AS userId,
+          'Super Admin' AS userType,
+          userName AS name,
+          status,
+          created_at
+      FROM superadmin
+    `;
+    db.query(q, [], (err, result) => {
+      if (err) {
+        console.log("Database Error:", err);
+        return res.status(500).json({ errorMessage: "Database error" });
+      }
+      return res.status(200).json({ users: result });
+    });
+  } catch (error) {
+    res.status(500).json({ errorMessage: error.message });
+  }
+};
+

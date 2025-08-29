@@ -1,3 +1,18 @@
+// Get all branches
+export const getAllBranches = async (req, res) => {
+  try {
+    const q = "select branchId,branchName,contactNumber,emailAddress,city,created_at from branch";
+    db.query(q, [], (err, result) => {
+      if (err) {
+        console.log("Database Error:", err);
+        return res.status(500).json({ errorMessage: "Database error" });
+      }
+      return res.status(200).json({ branches: result });
+    });
+  } catch (error) {
+    res.status(500).json({ errorMessage: error.message });
+  }
+};
 import db from "../config/db.js";
 
 export const createBranch = async (req, res) => {
@@ -60,3 +75,4 @@ export const SearchBranch = async (req, res) => {
         res.status(500).json({ errorMessage: error.message });
     }
 };
+
