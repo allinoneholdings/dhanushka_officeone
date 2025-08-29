@@ -7,6 +7,8 @@ import PackagePage from './pages/PackagePage'
 import Register from './pages/Login/Register'
 import SingleBranch from './pages/SingleBranch'
 import SinglePackage from './pages/SinglePackage'
+import AdminDashboard from './pages/Staff/AdminDashboard'
+import CustomerProfile from './pages/Customer/CustomerPerfile'
 
 const App = () => {
   return (
@@ -21,7 +23,10 @@ const App = () => {
         
         <Route path='/branch' element={<BranchPage/>} />
         <Route path='/branch/:id' element={<SingleBranch/>} />
-        
+    
+        <Route path='/admin' element={<AdminDashboard/>} />
+        <Route path='/customer' element={<CustomerProfile/>} />
+
 
       </Routes>
     </div>

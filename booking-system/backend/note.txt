@@ -4,3 +4,7 @@ npm i nodemon cors dotenv body-parser
 npm i mysql2
 npm install bcryptjs jsonwebtoken
 https://github.com/settings/copilot/features
+
+
+
+npm install jwt-decode
