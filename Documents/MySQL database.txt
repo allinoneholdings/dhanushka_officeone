@@ -6,7 +6,7 @@ use AllInOneSample;
 create table SuperAdmin(
 	superAdminId int primary key auto_increment,
     userName varchar(50),
-    password varchar(20),
+    password varchar(255),
     status ENUM('Active', 'InActive') DEFAULT 'Active',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -31,7 +31,7 @@ create table Branch(
 create table staff(
 	staffId int primary key auto_increment,
     userName varchar(50),
-    password varchar(20),
+    password varchar(255),
     branchIdFk int,
     status ENUM('Active', 'InActive') DEFAULT 'Active',
     type ENUM('Admin', 'Receptionist') DEFAULT 'Admin',
@@ -53,7 +53,7 @@ create table customer(
 	customerId int primary key auto_increment,
     customerName varchar(50),
     emailAddress varchar(50),
-    password varchar(20),
+    password varchar(255),
     phoneNumber varchar(12),
     status ENUM('Active', 'InActive') DEFAULT 'Active',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
